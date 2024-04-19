@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
-    public Transform castPoint;
+    public Transform firePoint;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
