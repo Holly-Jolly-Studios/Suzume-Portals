@@ -356,13 +356,21 @@ Shader "Custom/Grass"
 			#pragma geometry geom
             #pragma fragment frag
 
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+            
+			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+			#pragma multi_compile _ _SHADOWS_SOFT
+
 			// The lighting sections of the frag shader taken from this helpful post by Ben Golus:
 			// https://forum.unity.com/threads/water-shader-graph-transparency-and-shadows-universal-render-pipeline-order.748142/#post-5518747
             float4 frag (GeomData i) : SV_Target
             {
 				float4 color = tex2D(_BladeTexture, i.uv);
 
-			#ifdef _MAIN_LIGHT_SHADOWS
+			//#ifdef _MAIN_LIGHT_SHADOWS
 				VertexPositionInputs vertexInput = (VertexPositionInputs)0;
 				vertexInput.positionWS = i.worldPos;
 
@@ -370,7 +378,7 @@ Shader "Custom/Grass"
 				half shadowAttenuation = saturate(MainLightRealtimeShadow(shadowCoord) + 0.25f);
 				float4 shadowColor = lerp(0.0f, 1.0f, shadowAttenuation);
 				color *= shadowColor;
-			#endif
+			//#endif
 
                 return color * lerp(_BaseColor, _TipColor, i.uv.y);
 			}
