@@ -5570,6 +5570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1717465675}
   waterPlane: {fileID: 951351197}
+  player: {fileID: 935326454}
+  playerCamera: {fileID: 1717465668}
 --- !u!114 &614287904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6773,7 +6775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 18
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &761737302
 Transform:
   m_ObjectHideFlags: 0
@@ -8467,6 +8469,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2117357425}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &935326454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3776203149350567913, guid: 3d10aa53a4b6f4f4599f01f4b72f0117,
+    type: 3}
+  m_PrefabInstance: {fileID: 2117357425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935326446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd72622e3b2a964894127fb2903d972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &937046511
 GameObject:
   m_ObjectHideFlags: 0
@@ -8548,6 +8562,7 @@ GameObject:
   - component: {fileID: 951351197}
   - component: {fileID: 951351199}
   - component: {fileID: 951351198}
+  - component: {fileID: 951351200}
   m_Layer: 0
   m_Name: WaterPlane
   m_TagString: Untagged
@@ -8619,6 +8634,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951351196}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &951351200
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951351196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &969060790
 GameObject:
@@ -13798,7 +13835,7 @@ GameObject:
   - component: {fileID: 1534783772}
   m_Layer: 0
   m_Name: Collision Plane B
-  m_TagString: Untagged
+  m_TagString: Water Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16813,7 +16850,7 @@ GameObject:
   - component: {fileID: 1879741584}
   m_Layer: 0
   m_Name: Collision Plane A
-  m_TagString: Untagged
+  m_TagString: Grass Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

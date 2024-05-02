@@ -30,6 +30,15 @@ public class PortalTeleporter : MonoBehaviour {
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 player.position = reciever.position + positionOffset;
 
+                if (this.tag == "Grass Portal")
+                {
+                    player.GetComponent<PlayerController>().SetNotOnWater();
+                }
+                else if (this.tag == "Water Portal")
+                {
+                    player.GetComponent<PlayerController>().SetOnWater();
+                }
+
                 playerIsOverlapping = false;
             }
         }

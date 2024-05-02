@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
+    private bool onWater = false;
+
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -44,15 +46,6 @@ public class PlayerController : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        // if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
-        // {
-        //     moveDirection.y = jumpSpeed;
-        // }
-        // else
-        // {
-        //     moveDirection.y = movementDirectionY;
-        // }
-        
         if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
@@ -73,6 +66,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Needed to let the player be teleported
     public void PauseController() => StartCoroutine(PauseControllerCoroutine());
     private IEnumerator PauseControllerCoroutine()
     {
@@ -80,6 +74,21 @@ public class PlayerController : MonoBehaviour
         Debug.Log("pause");
         yield return new WaitForSeconds(0.05f);
         characterController.enabled = true;
+    }
+
+    public void SetNotOnWater()
+    {
+        onWater = false;
+    }
+
+    public void SetOnWater()
+    {
+        onWater = true;
+    }
+
+    public bool GetOnWater()
+    {
+        return onWater;
     }
 }
 
