@@ -282,7 +282,7 @@ Shader "Custom/Grass"
 			{
 				float grassVisibility = tex2Dlod(_GrassMap, float4(input[0].uv, 0, 0)).r;
 
-				if (grassVisibility >= _GrassThreshold)
+				//if (grassVisibility >= _GrassThreshold)
 				{
 					float3 pos = input[0].vertex.xyz;
 

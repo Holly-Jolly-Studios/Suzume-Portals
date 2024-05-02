@@ -6,6 +6,7 @@ public class PortalCamera : MonoBehaviour
     public Transform playerCamera;
     public Transform portal;
     public Transform otherPortal;
+
     
 
     // Update is called once per frame
