@@ -69,5 +69,13 @@ public class PlayerController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
+
+    // public void PauseController() => StartCoroutine(PauseControllerCoroutine());
+    // private IEnumerator PauseControllerCoroutine()
+    // {
+    //     characterController.enabled = false;
+    //     yield return new WaitForSeconds(0.05f);
+    //     characterController.enabled = true;
+    // }
 }
 
