@@ -59,7 +59,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
+        if (characterController.enabled)
+        {
+            characterController.Move(moveDirection * Time.deltaTime);
+        }
         
         if (canMove)
         {
@@ -70,12 +73,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // public void PauseController() => StartCoroutine(PauseControllerCoroutine());
-    // private IEnumerator PauseControllerCoroutine()
-    // {
-    //     characterController.enabled = false;
-    //     yield return new WaitForSeconds(0.05f);
-    //     characterController.enabled = true;
-    // }
+    public void PauseController() => StartCoroutine(PauseControllerCoroutine());
+    private IEnumerator PauseControllerCoroutine()
+    {
+        characterController.enabled = false;
+        Debug.Log("pause");
+        yield return new WaitForSeconds(0.05f);
+        characterController.enabled = true;
+    }
 }
 

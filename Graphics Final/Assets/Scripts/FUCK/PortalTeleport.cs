@@ -13,15 +13,20 @@ public class PortalTeleporter : MonoBehaviour {
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
-
-            // If this is true: The player has moved across the portal
+            
+            // If this is true then the player has moved across the portal
             if (dotProduct < 0f)
             {
-                // Teleport him!
+                Debug.Log("teleporting!");
+                
+                player.GetComponent<PlayerController>().PauseController();
+
+                // Rotation
                 float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
                 rotationDiff += 180;
                 player.Rotate(Vector3.up, rotationDiff);
 
+                // Movement
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 player.position = reciever.position + positionOffset;
 
