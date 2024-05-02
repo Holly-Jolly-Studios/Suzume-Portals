@@ -67,9 +67,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ColorStrength: 0.6
     - _Depth: 286.56
-    - _Displacement: 0.01
-    - _NormalStrength: 0.4
+    - _Displacement: 0.005
+    - _NormalStrength: 1
+    - _Opacity: 0.75
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.9
