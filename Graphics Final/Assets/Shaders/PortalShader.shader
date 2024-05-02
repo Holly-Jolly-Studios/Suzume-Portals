@@ -1,4 +1,6 @@
-﻿Shader "Unlit/PortalShader"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Unlit/ScreenCutoutShader"
 {
 	Properties
 	{
@@ -6,16 +8,19 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
-		LOD 100
+		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+		Lighting Off
+		Cull Back
+		ZWrite On
+		ZTest Less
+		
+		Fog{ Mode Off }
 
 		Pass
 		{
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			// make fog work
-			#pragma multi_compile_fog
 			
 			#include "UnityCG.cginc"
 
@@ -27,24 +32,26 @@
 
 			struct v2f
 			{
-				float4 uv : TEXCOORD0;
+				//float2 uv : TEXCOORD0;
 				float4 vertex : SV_POSITION;
+				float4 screenPos : TEXCOORD1;
 			};
 
-			sampler2D _MainTex;
-			float4 _MainTex_ST;
-			
 			v2f vert (appdata v)
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = ComputeScreenPos(o.vertex);
+				o.screenPos = ComputeScreenPos(o.vertex);
 				return o;
 			}
 			
+			sampler2D _MainTex;
+
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 col = tex2D(_MainTex, i.uv.xy / i.uv.w);
+				i.screenPos /= i.screenPos.w;
+				fixed4 col = tex2D(_MainTex, float2(i.screenPos.x, i.screenPos.y));
+				
 				return col;
 			}
 			ENDCG
