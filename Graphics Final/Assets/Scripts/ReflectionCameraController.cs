@@ -19,7 +19,7 @@ public class ReflectionCameraController : MonoBehaviour
         player = player.GetComponent<PlayerController>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         // If the player is on the water plane then run as usual, but if on the grass plane the camera needs to be mirrored
         isOnWaterPlane = player.GetOnWater();
@@ -31,12 +31,10 @@ public class ReflectionCameraController : MonoBehaviour
         if (!isOnWaterPlane)
         {
             transform.position = new Vector3(1, 1, 0);
-            Debug.Log("Not on water");
         }
         else
         {
             transform.position = new Vector3(transformX, transformY, transformZ);
-            Debug.Log("water");
         }
         
         float rotationX = -mainCamera.transform.rotation.eulerAngles.x;
