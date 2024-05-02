@@ -168,12 +168,13 @@ Shader "Custom/Grass"
 			VertexOutput geomVert (VertexInput v)
             {
 				VertexOutput o; 
-				o.vertex = float4(TransformObjectToWorld(v.vertex), 1.0f);
-				o.normal = TransformObjectToWorldNormal(v.normal);
+				o.vertex = v.vertex;
+				o.normal = v.normal;
 				o.tangent = v.tangent;
 				o.uv = TRANSFORM_TEX(v.uv, _GrassMap);
                 return o;
             }
+
 
 			// This function lets us derive the tessellation factor for an edge
 			// from the vertices.

@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
         if (updateTimer <= 0f)
         {
             fps = 1f / Time.unscaledDeltaTime;
-            fpsText.text = "FPS: " + Mathf.Round(fps);
+                fpsText.text = "FPS: " + Mathf.Round(fps);
             updateTimer = 0.2f;
         }
     }
