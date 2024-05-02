@@ -37,6 +37,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DUDV_Map:
+        m_Texture: {fileID: 2800000, guid: 278edd4d0c2e8c344a545731407a193c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainNormal:
         m_Texture: {fileID: 2800000, guid: 45e0bd6b59d413a47a37bc28db4b1e4b, type: 3}
         m_Scale: {x: 1, y: 1}
