@@ -111,7 +111,7 @@ Material:
     - _BendDelta: 0.15
     - _BladeBendCurve: 4
     - _BladeBendDistance: 0.38
-    - _BladeHeightMax: 0.326
+    - _BladeHeightMax: 0.501
     - _BladeHeightMin: 0
     - _BladeSegments: 3
     - _BladeWidthMax: 0.05
@@ -145,7 +145,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TessellationGrassDistance: 0.075
-    - _WindFrequency: 0.0125
+    - _WindFrequency: 0.02
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -153,6 +153,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TipColor: {r: 0.3475881, g: 0.6886792, b: 0.3539636, a: 1}
+    - _TipColor: {r: 0.25698647, g: 0.5188679, b: 0.25999656, a: 1}
     - _WindVelocity: {r: 0.2, g: 0, b: 0.15, a: 0}
   m_BuildTextureStacks: []
