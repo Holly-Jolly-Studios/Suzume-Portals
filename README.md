@@ -5,7 +5,6 @@ he goal of this project was to recreate an effect seen in the Makoto Shinkai fil
 
 <h4 align="center">Here's what the final product looks like:
 </h4>
-
 ![](https://github.com/JeffreyPopek/Suzume-Portals/blob/main/Graphics%20Final/Showcase.gif)
 
 Read more about the project here:
