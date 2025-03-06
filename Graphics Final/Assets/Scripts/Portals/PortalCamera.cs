@@ -14,8 +14,11 @@ public class PortalCamera : MonoBehaviour {
 
         float angularDifferenceBetweenPortalRotations = Quaternion.Angle(portal.rotation, otherPortal.rotation);
 
-        Quaternion portalRotationalDifference = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotations, Vector3.up);
-        Vector3 newCameraDirection = portalRotationalDifference * playerCamera.forward;
+        Quaternion portalRotationalDiff = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotations, Vector3.up);
+        Vector3 newCameraDirection = portalRotationalDiff * playerCamera.forward;
         transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
     }
 }
+
+
+
